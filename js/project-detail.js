@@ -6,7 +6,10 @@
 (function () {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"), 10);
-  const project = typeof PROJECTS_DATA !== "undefined" && !isNaN(id) ? PROJECTS_DATA[id] : null;
+  const project =
+    typeof PROJECTS_DATA !== "undefined" && !isNaN(id)
+      ? PROJECTS_DATA[id]
+      : null;
 
   if (!project) {
     document.title = "프로젝트를 찾을 수 없습니다 | MINHEE PORTFOLIO";
@@ -60,10 +63,13 @@
 
   const detailPosition = document.querySelector("[data-detail-position]");
   if (detailPosition) {
-    detailPosition.textContent = project.detail?.position || project.categoryLabel || "-";
+    detailPosition.textContent =
+      project.detail?.position || project.categoryLabel || "-";
   }
 
-  const detailContribution = document.querySelector("[data-detail-contribution]");
+  const detailContribution = document.querySelector(
+    "[data-detail-contribution]",
+  );
   if (detailContribution) {
     detailContribution.textContent = project.detail?.contribution || "-";
   }
@@ -71,6 +77,17 @@
   const detailDate = document.querySelector("[data-detail-date]");
   if (detailDate) {
     detailDate.textContent = project.detail?.date || "-";
+  }
+
+  const detailTool = document.querySelector("[data-detail-tool]");
+  if (detailTool) {
+    const tool = project.detail?.tool;
+    if (tool) {
+      detailTool.textContent = tool;
+      detailTool.closest(".project-detail__meta-item").style.display = "";
+    } else {
+      detailTool.closest(".project-detail__meta-item").style.display = "none";
+    }
   }
 
   const detailBody = document.querySelector("[data-detail-body]");
@@ -95,14 +112,72 @@
     }
   }
 
-  /* Page Capture */
-  const captureWrap = document.querySelector("[data-detail-capture]");
-  const captureImg = document.querySelector("[data-detail-capture-img]");
-  if (captureWrap && captureImg && project.detail?.pageCapture) {
-    captureImg.src = project.detail.pageCapture;
-    captureImg.alt = `${nameText} 페이지 캡쳐`;
-    captureWrap.style.display = "block";
-  } else if (captureWrap) {
-    captureWrap.style.display = "none";
+  /* What I Focused On */
+  const focusSection = document.querySelector("[data-detail-focus]");
+  const focusList = document.querySelector("[data-detail-focus-list]");
+  const focusSliderNav = document.querySelector("[data-detail-focus-slider-nav]");
+  if (focusSection && focusList && project.detail?.focusItems?.length) {
+    focusList.innerHTML = project.detail.focusItems
+      .map(
+        (item, i) => `
+      <div class="project-detail__focus-item">
+        <div class="project-detail__focus-visual">
+          ${item.image ? `<img src="${item.image}" alt="${item.title}" class="project-detail__focus-img" />` : '<span class="placeholder placeholder--focus-visual"></span>'}
+        </div>
+        <div class="project-detail__focus-content">
+          <h4 class="project-detail__focus-item-title"><span class="ai-workflow__example-num">${i + 1}</span> ${item.title}</h4>
+          <p class="project-detail__focus-item-desc">${item.description}</p>
+        </div>
+      </div>
+    `,
+      )
+      .join("");
+    focusSection.style.display = "block";
+    if (focusSliderNav) focusSliderNav.style.display = "";
+
+    /* Focus 슬라이드 prev/next (모바일) */
+    const prevBtn = focusSection.querySelector(".project-detail__focus-slider-prev");
+    const nextBtn = focusSection.querySelector(".project-detail__focus-slider-next");
+    if (focusList && prevBtn && nextBtn) {
+      const slideWidth = () => focusList.offsetWidth;
+      const scrollToSlide = (index) => {
+        focusList.scrollTo({ left: index * slideWidth(), behavior: "smooth" });
+      };
+      const updateDisabledState = () => {
+        const w = slideWidth();
+        if (w <= 0) return;
+        const idx = Math.round(focusList.scrollLeft / w);
+        const maxIdx = Math.floor(focusList.scrollWidth / w) - 1;
+        prevBtn.classList.toggle("is-disabled", idx <= 0);
+        nextBtn.classList.toggle("is-disabled", idx >= maxIdx || maxIdx <= 0);
+      };
+      updateDisabledState();
+      focusList.addEventListener("scroll", updateDisabledState);
+      window.addEventListener("resize", updateDisabledState);
+      new ResizeObserver(updateDisabledState).observe(focusList);
+      prevBtn.addEventListener("click", () => {
+        const idx = Math.round(focusList.scrollLeft / slideWidth());
+        if (idx > 0) scrollToSlide(idx - 1);
+      });
+      nextBtn.addEventListener("click", () => {
+        const idx = Math.round(focusList.scrollLeft / slideWidth());
+        const maxIdx = focusList.scrollWidth / slideWidth() - 1;
+        if (idx < maxIdx) scrollToSlide(idx + 1);
+      });
+    }
+  } else {
+    if (focusSection) focusSection.style.display = "none";
+    if (focusSliderNav) focusSliderNav.style.display = "none";
+  }
+
+  /* Responsive Image */
+  const responsiveWrap = document.querySelector("[data-detail-responsive]");
+  const responsiveImg = document.querySelector("[data-detail-responsive-img]");
+  if (responsiveWrap && responsiveImg && project.detail?.responsiveImage) {
+    responsiveImg.src = project.detail.responsiveImage;
+    responsiveImg.alt = `${nameText} 반응형 화면`;
+    responsiveWrap.style.display = "block";
+  } else if (responsiveWrap) {
+    responsiveWrap.style.display = "none";
   }
 })();
