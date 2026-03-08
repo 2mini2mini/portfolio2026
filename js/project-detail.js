@@ -119,52 +119,45 @@
   if (focusSection && focusList && project.detail?.focusItems?.length) {
     focusList.innerHTML = project.detail.focusItems
       .map(
-        (item, i) => `
-      <div class="project-detail__focus-item">
-        <div class="project-detail__focus-visual">
-          ${item.image ? `<img src="${item.image}" alt="${item.title}" class="project-detail__focus-img" />` : '<span class="placeholder placeholder--focus-visual"></span>'}
-        </div>
+        (item, i) => {
+          const isBeforeAfter = item.beforeImage || item.afterImage;
+          const visualHtml = isBeforeAfter
+            ? `
+          <div class="project-detail__focus-visuals project-detail__focus-visuals--compare">
+            <div class="project-detail__focus-visual">
+              <span class="project-detail__focus-visual-label">Before</span>
+              ${item.beforeImage ? `<img src="${item.beforeImage}" alt="Before" class="project-detail__focus-img" />` : '<span class="placeholder placeholder--focus-visual"></span>'}
+            </div>
+            <div class="project-detail__focus-visual">
+              <span class="project-detail__focus-visual-label">After</span>
+              ${item.afterImage ? `<img src="${item.afterImage}" alt="After" class="project-detail__focus-img" />` : '<span class="placeholder placeholder--focus-visual"></span>'}
+            </div>
+          </div>`
+            : `
+          <div class="project-detail__focus-visual">
+            ${item.image ? `<img src="${item.image}" alt="${item.title}" class="project-detail__focus-img" />` : '<span class="placeholder placeholder--focus-visual"></span>'}
+          </div>`;
+          return `
+      <div class="project-detail__focus-item${isBeforeAfter ? " project-detail__focus-item--before-after" : ""}">
+        ${isBeforeAfter
+            ? `
+        <div class="project-detail__focus-content">
+          <h4 class="project-detail__focus-item-title"><span class="ai-workflow__example-num">${i + 1}</span> ${item.title}</h4>
+          ${visualHtml}
+          <p class="project-detail__focus-item-desc">${item.description}</p>
+        </div>`
+            : `${visualHtml}
         <div class="project-detail__focus-content">
           <h4 class="project-detail__focus-item-title"><span class="ai-workflow__example-num">${i + 1}</span> ${item.title}</h4>
           <p class="project-detail__focus-item-desc">${item.description}</p>
-        </div>
+        </div>`}
       </div>
-    `,
+    `;
+        },
       )
       .join("");
     focusSection.style.display = "block";
-    if (focusSliderNav) focusSliderNav.style.display = "";
-
-    /* Focus 슬라이드 prev/next (모바일) */
-    const prevBtn = focusSection.querySelector(".project-detail__focus-slider-prev");
-    const nextBtn = focusSection.querySelector(".project-detail__focus-slider-next");
-    if (focusList && prevBtn && nextBtn) {
-      const slideWidth = () => focusList.offsetWidth;
-      const scrollToSlide = (index) => {
-        focusList.scrollTo({ left: index * slideWidth(), behavior: "smooth" });
-      };
-      const updateDisabledState = () => {
-        const w = slideWidth();
-        if (w <= 0) return;
-        const idx = Math.round(focusList.scrollLeft / w);
-        const maxIdx = Math.floor(focusList.scrollWidth / w) - 1;
-        prevBtn.classList.toggle("is-disabled", idx <= 0);
-        nextBtn.classList.toggle("is-disabled", idx >= maxIdx || maxIdx <= 0);
-      };
-      updateDisabledState();
-      focusList.addEventListener("scroll", updateDisabledState);
-      window.addEventListener("resize", updateDisabledState);
-      new ResizeObserver(updateDisabledState).observe(focusList);
-      prevBtn.addEventListener("click", () => {
-        const idx = Math.round(focusList.scrollLeft / slideWidth());
-        if (idx > 0) scrollToSlide(idx - 1);
-      });
-      nextBtn.addEventListener("click", () => {
-        const idx = Math.round(focusList.scrollLeft / slideWidth());
-        const maxIdx = focusList.scrollWidth / slideWidth() - 1;
-        if (idx < maxIdx) scrollToSlide(idx + 1);
-      });
-    }
+    if (focusSliderNav) focusSliderNav.style.display = "none";
   } else {
     if (focusSection) focusSection.style.display = "none";
     if (focusSliderNav) focusSliderNav.style.display = "none";

@@ -56,6 +56,42 @@ const PROJECTS_DATA = [
     categoryLabel: "UI · Publishing",
     name: "아이반톳 베트남 교육<br />사이트 UI/UX 리뉴얼",
     tags: "웹사이트, UI/UX, 글로벌",
+    detail: {
+      heroBg: "images/projects/ibantot-vietnam/hero.png",
+      title: "아이반톳 베트남 교육 플랫폼 UI/UX 리뉴얼",
+      position: "UI 디자인 · 퍼블리싱",
+      contribution: "UI 디자인 100% · 퍼블리싱 100%",
+      tool: "Figma · Html5 ·  CSS",
+      date: "2025 (2주 소요)",
+      description:
+        "<p><strong>베트남 교육 플랫폼 iBANTOT의 메인 화면을 사용자 탐색 흐름 중심으로 재정비한 프로젝트입니다.</strong></p>" +
+        "<p>기존 기능 나열형 구조를 콘텐츠 중심 구조로 재구성하고, 반복되는 UI 모듈을 정리하여 가독성과 정보 위계를 개선했습니다.</p>" +
+        "<p>또한 카드 컴포넌트 스타일을 통일하여 화면의 일관성을 높이고, 다양한 교육 콘텐츠를 보다 직관적으로 탐색할 수 있도록 구조를 개선했습니다.</p>",
+      ctaUrl: "https://ibantot.vn/",
+      focusItems: [
+        {
+          title: "메인 영역의 로그인 기능을 추가하여 접근성 개선",
+          beforeImage: "images/projects/ibantot-vietnam/focus-1-before.png",
+          afterImage: "images/projects/ibantot-vietnam/focus-1-after.png",
+          description:
+            "기존 메인 화면은 메인 배너 중심 구조로 구성되어 있어 로그인 기능을 이용하기 위해 별도의 이동이 필요했습니다.<br />리뉴얼에서는 메인 배너 영역 옆에 로그인 박스를 함께 배치하여<br />사용자가 첫 화면에서 바로 로그인 및 서비스 이용을 시작할 수 있도록 접근성을 개선했습니다.",
+        },
+        {
+          title: "컨텐츠 섹션 구조 및 활용성 개선",
+          beforeImage: "images/projects/ibantot-vietnam/focus-2-before.png",
+          afterImage: "images/projects/ibantot-vietnam/focus-2-after.png",
+          description:
+            "기존 화면은 콘텐츠 섹션의 구분이 명확하지 않아 사용자가 다양한 교육 콘텐츠를 탐색하기 어려운 구조였습니다.<br />리뉴얼에서는 추천 프로그램, 수업 활동, 창작 활동 등 콘텐츠 성격에 따라 섹션을 재구성하여<br />사용자가 필요한 콘텐츠를 보다 직관적으로 탐색할 수 있도록 구조를 개선했습니다.",
+        },
+        {
+          title: "카드 UI와 정보 위계 정리",
+          beforeImage: "images/projects/ibantot-vietnam/focus-3-before.png",
+          afterImage: "images/projects/ibantot-vietnam/focus-3-after.png",
+          description:
+            "기존 화면은 카드 형태의 콘텐츠 정보가 다양한 방식으로 배치되어 시각적 위계가 다소 불명확했습니다.<br />리뉴얼에서는 카드 컴포넌트의 구조와 정보 노출 방식을 정리하여<br />콘텐츠의 시각적 일관성을 높이고 사용자가 정보를 보다 쉽게 인지할 수 있도록 개선했습니다.",
+        },
+      ],
+    },
   },
   {
     thumb: "images/projects/bigsplay-interactive-learning-tool/thumb.png",
@@ -70,6 +106,13 @@ const PROJECTS_DATA = [
     categoryLabel: "UI · Publishing",
     name: "키드키즈 육아종<br />사이버 연수원 사이트 제작",
     tags: "웹사이트, UI",
+  },
+  {
+    thumb: "images/projects/kidkids-safety-education/thumb.png",
+    category: "web",
+    categoryLabel: "UI · Publishing",
+    name: "키드키즈 안전교육<br />페이지 UI/UX 리뉴얼",
+    tags: "웹사이트, UI/UX, 반응형, 교육",
   },
   {
     thumb: "images/projects/kidkids-homepage-renewal/thumb.png",
