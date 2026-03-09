@@ -1,8 +1,21 @@
-# 프로젝트 썸네일
+# 프로젝트 이미지
 
-이 폴더에 프로젝트 썸네일 이미지를 저장하세요.
+프로젝트별로 폴더를 나누어 이미지를 관리합니다.
 
-- 권장 비율: 정사각형 (1:1)
-- 파일명: `js/projects-data.js`의 `thumb` 경로와 일치시켜 주세요.
+## 폴더 구조
 
-예: `silveredunet.jpg`, `ibantot.jpg`, `bigs-play.jpg` 등
+```
+images/projects/
+├── {프로젝트-slug}/
+│   ├── thumb.png      # 썸네일 (필수)
+│   ├── hero.png       # 상세 페이지 히어로 (선택)
+│   ├── capture.png    # 페이지 캡쳐 (선택)
+│   └── *.json        # 모션 Lottie (선택)
+```
+
+## 규칙
+
+- `thumb.png`: 썸네일, 권장 비율 1:1
+- `hero.png`: 상세 페이지 상단 배경
+- `capture.png`: 상세 페이지 캡쳐 이미지
+- `js/projects-data.js`의 경로와 일치시켜 주세요.

@@ -61,34 +61,35 @@ const PROJECTS_DATA = [
       title: "아이반톳 베트남 교육 플랫폼 UI/UX 리뉴얼",
       position: "UI 디자인 · 퍼블리싱",
       contribution: "UI 디자인 100% · 퍼블리싱 100%",
-      tool: "Figma · Html5 ·  CSS",
+      tool: "Figma · Html ·  CSS",
       date: "2025 (2주 소요)",
       description:
-        "<p><strong>베트남 교육 플랫폼 iBANTOT의 메인 화면을 사용자 탐색 흐름 중심으로 재정비한 프로젝트입니다.</strong></p>" +
-        "<p>기존 기능 나열형 구조를 콘텐츠 중심 구조로 재구성하고, 반복되는 UI 모듈을 정리하여 가독성과 정보 위계를 개선했습니다.</p>" +
-        "<p>또한 카드 컴포넌트 스타일을 통일하여 화면의 일관성을 높이고, 다양한 교육 콘텐츠를 보다 직관적으로 탐색할 수 있도록 구조를 개선했습니다.</p>",
+        "<p><strong>베트남 교육 플랫폼 iBANTOT의 메인 화면을 사용자 탐색 흐름 중심으로 재설계한 프로젝트입니다.</strong></p>" +
+        "<p>기존 기능 나열형 구조를 콘텐츠 중심 구조로 재정리하여 사용자가 주요 교육 프로그램과 콘텐츠를 직관적으로 탐색할 수 있도록 정보 구조를 개선했습니다.</p>" +
+        "<p>또한 반복되는 UI 모듈을 정리하고 카드 컴포넌트 스타일을 통일하여 화면의 일관성과 가독성을 높였습니다.</p>" +
+        "<p>교육 콘텐츠 영역과 커머스 영역의 구조를 구분하여 플랫폼 내 콘텐츠 탐색 흐름을 명확하게 설계했습니다.</p>",
       ctaUrl: "https://ibantot.vn/",
       focusItems: [
         {
-          title: "메인 영역의 로그인 기능을 추가하여 접근성 개선",
+          title: "콘텐츠 중심 메인 구조 재설계",
           beforeImage: "images/projects/ibantot-vietnam/focus-1-before.png",
           afterImage: "images/projects/ibantot-vietnam/focus-1-after.png",
           description:
-            "기존 메인 화면은 메인 배너 중심 구조로 구성되어 있어 로그인 기능을 이용하기 위해 별도의 이동이 필요했습니다.<br />리뉴얼에서는 메인 배너 영역 옆에 로그인 박스를 함께 배치하여<br />사용자가 첫 화면에서 바로 로그인 및 서비스 이용을 시작할 수 있도록 접근성을 개선했습니다.",
+            "기존 기능 중심 레이아웃을 콘텐츠 중심 구조로 재정리하여 주요 교육 프로그램과 콘텐츠를 직관적으로 탐색할 수 있도록 메인 구조를 설계했습니다.",
         },
         {
-          title: "컨텐츠 섹션 구조 및 활용성 개선",
+          title: "카드 컴포넌트 기반 UI 시스템 정리",
           beforeImage: "images/projects/ibantot-vietnam/focus-2-before.png",
           afterImage: "images/projects/ibantot-vietnam/focus-2-after.png",
           description:
-            "기존 화면은 콘텐츠 섹션의 구분이 명확하지 않아 사용자가 다양한 교육 콘텐츠를 탐색하기 어려운 구조였습니다.<br />리뉴얼에서는 추천 프로그램, 수업 활동, 창작 활동 등 콘텐츠 성격에 따라 섹션을 재구성하여<br />사용자가 필요한 콘텐츠를 보다 직관적으로 탐색할 수 있도록 구조를 개선했습니다.",
+            "반복적으로 사용되는 콘텐츠 카드 UI를 일관된 구조로 정리하여 다양한 프로그램 정보를 동일한 방식으로 전달할 수 있도록 UI 시스템을 구축했습니다.",
         },
         {
-          title: "카드 UI와 정보 위계 정리",
+          title: "교육 콘텐츠와 커머스 영역 구조 분리",
           beforeImage: "images/projects/ibantot-vietnam/focus-3-before.png",
           afterImage: "images/projects/ibantot-vietnam/focus-3-after.png",
           description:
-            "기존 화면은 카드 형태의 콘텐츠 정보가 다양한 방식으로 배치되어 시각적 위계가 다소 불명확했습니다.<br />리뉴얼에서는 카드 컴포넌트의 구조와 정보 노출 방식을 정리하여<br />콘텐츠의 시각적 일관성을 높이고 사용자가 정보를 보다 쉽게 인지할 수 있도록 개선했습니다.",
+            "교육 콘텐츠와 커머스 영역을 명확히 구분하여 사용자 탐색 흐름을 정리하고 플랫폼 내 정보 구조를 개선했습니다.",
         },
       ],
     },
@@ -99,13 +100,58 @@ const PROJECTS_DATA = [
     categoryLabel: "UX Strategy · UI",
     name: "빅스플레이 양방향<br />수업도구 서비스 디자인",
     tags: "웹서비스, UI/UX, 인터랙션",
+    detail: {
+      heroBg: "images/projects/bigsplay-interactive-learning-tool/hero.png",
+      title: "빅스플레이 양방향 수업도구 서비스 디자인",
+      position: "UX 설계 · UI 디자인",
+      contribution: "UX 설계 100% · 퍼블리싱 100%",
+      tool: "Figma · Photoshop · After Effects · Illustrator",
+      date: "2025 (4주 소요)",
+      description:
+        "<p><strong>빅스플레이 양방향 수업도구 서비스를 사용자 탐색 흐름 중심으로 재정비한 프로젝트입니다.</strong></p>" +
+        "<p>기존 기능 나열형 구조를 콘텐츠 중심 구조로 재구성하고, 반복되는 UI 모듈을 정리하여 가독성과 정보 위계를 개선했습니다.</p>" +
+        "<p>또한 카드 컴포넌트 스타일을 통일하여 화면의 일관성을 높이고, 다양한 교육 콘텐츠를 보다 직관적으로 탐색할 수 있도록 구조를 개선했습니다.</p>",
+    },
   },
   {
     thumb: "images/projects/kidkids-online-training/thumb.png",
     category: "web",
     categoryLabel: "UI · Publishing",
     name: "키드키즈 육아종<br />사이버 연수원 사이트 제작",
-    tags: "웹사이트, UI",
+    tags: "웹서비스, UI, 퍼블리싱",
+    detail: {
+      heroBg: "images/projects/kidkids-online-training/hero.png",
+      title: "키드키즈 육아종합지원센터 사이버 연수원",
+      position: "UI 디자인 · 퍼블리싱",
+      contribution: "UI 디자인 100% · 퍼블리싱 100%",
+      tool: "Figma · Photoshop · HTML · CSS",
+      date: "2024 (3주 소요)",
+      description:
+        "<p><strong>보육교직원을 위한 온라인 연수 플랫폼의 UI 디자인과 퍼블리싱을 진행한 프로젝트입니다.</strong></p>" +
+        "<p>다양한 연수 과정과 교육 콘텐츠를 효율적으로 탐색할 수 있도록 화면 구조와 콘텐츠 배치를 정리하고, 강의 정보를 직관적으로 확인할 수 있는 UI를 설계했습니다.</p>" +
+        "<p>또한 디자인과 퍼블리싱을 함께 진행하여 실제 서비스로 운영되는 연수 플랫폼의 화면을 구현했습니다.</p>",
+      ctaUrl: "https://care.kidkids.net/icare",
+      focusItems: [
+        {
+          title: "회원 유형에 따른 가입 흐름 설계",
+          description:
+            "기존 키드키즈평생교육원 회원과 신규 사용자의 가입 방식을 구분하여 사용자 유형에 맞는 가입 경로를 제공했습니다. 사용자가 자신의 상황에 맞는 절차를 쉽게 선택할 수 있도록 가입 흐름을 설계했습니다.",
+          image: "images/projects/kidkids-online-training/focus-1.png",
+        },
+        {
+          title: "연수 콘텐츠 탐색을 위한 강의 목록 구조 설계",
+          description:
+            "다양한 연수 과정을 직관적으로 탐색할 수 있도록 카드형 강의 목록 UI를 구성했습니다. 강의 썸네일, 과정명, 교육기간, 수강 신청 버튼 등 주요 정보를 카드 구조로 정리하여 한 화면에서 확인할 수 있도록 UI를 설계했습니다.",
+          image: "images/projects/kidkids-online-training/focus-2.png",
+        },
+        {
+          title: "다중 강의 선택 기반 수강 신청 UX",
+          description:
+            "여러 연수 과정을 한 번에 선택하여 수강 신청할 수 있도록 체크박스 기반 선택 UI를 설계했습니다. 사용자가 필요한 교육을 효율적으로 선택하고 신청할 수 있도록 수강 신청 흐름을 구성했습니다.",
+          image: "images/projects/kidkids-online-training/focus-3.png",
+        },
+      ],
+    },
   },
   {
     thumb: "images/projects/kidkids-safety-education/thumb.png",

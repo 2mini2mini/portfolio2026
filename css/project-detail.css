@@ -244,7 +244,7 @@ body.page-project-detail {
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  text-align: center;
+  text-align: left;
 }
 
 .project-detail__focus-item {
@@ -262,7 +262,16 @@ body.page-project-detail {
 .project-detail__focus-item--before-after .project-detail__focus-content {
   display: flex;
   flex-direction: column;
-  gap: 1.125rem;
+  gap: 2rem;
+  text-align: center;
+}
+
+.project-detail__focus-item--before-after .project-detail__focus-item-title {
+  justify-content: center;
+}
+
+.project-detail__focus-item--before-after .project-detail__focus-item-desc {
+  text-align: center;
 }
 
 .project-detail__focus-visuals--compare {
@@ -317,11 +326,14 @@ body.page-project-detail {
   font-weight: 700;
   line-height: var(--line-height-tight);
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
+}
+
+.project-detail__focus-item:not(.project-detail__focus-item--before-after) .project-detail__focus-item-title {
+  margin-bottom: 2rem;
 }
 
 .project-detail__focus-item-title .ai-workflow__example-num {
@@ -335,7 +347,6 @@ body.page-project-detail {
   font-size: 1.125rem;
   line-height: var(--line-height-wide);
   color: #555;
-  text-align: center;
 }
 
 .project-detail__focus-slider-nav {
@@ -514,20 +525,19 @@ body.page-project-detail {
   }
 
   .project-detail__focus-item--before-after .project-detail__focus-content {
-    gap: 1.25rem;
+    gap: 2rem;
+    text-align: center;
   }
 
   .project-detail__focus-visuals--compare {
     gap: 1rem;
   }
 
-  .project-detail__focus-content {
-    text-align: center;
-  }
-
   .project-detail__focus-item-title {
     font-size: var(--font-size-20);
-    margin-bottom: 0.75rem;
+  }
+
+  .project-detail__focus-item--before-after .project-detail__focus-item-title {
     justify-content: center;
   }
 
