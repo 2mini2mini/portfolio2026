@@ -7,6 +7,7 @@
   --font-size-28: 1.75rem;
   --font-size-24: 1.5rem;
   --font-size-20: 1.25rem;
+  --font-size-18: 1.125rem;
   --font-size-16: 1rem;
   /* 행간 */
   --line-height-tight: 1.35;
@@ -445,8 +446,21 @@ section {
 
 .about__image {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 1 / -1;
   min-width: 0;
+  align-self: stretch;
+  display: flex;
+}
+
+.about__profile-img {
+  width: 100%;
+  max-width: 24.375rem;
+  height: 88%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 0.75rem;
+  display: block;
 }
 
 .about__skills {
@@ -478,7 +492,7 @@ section {
 }
 
 .about__intro {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .about__intro-title {
@@ -513,7 +527,7 @@ section {
 }
 
 .about__resume-btn {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
@@ -811,6 +825,14 @@ section {
   background: #ee6f33;
 }
 
+.project__card[data-category="others"]:hover .project__overlay {
+  background: #64748b;
+}
+
+.project__card--no-link {
+  cursor: default;
+}
+
 .project__overlay-top {
   display: flex;
   flex-direction: column;
@@ -840,6 +862,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -848,10 +871,11 @@ section {
 .project__filter-btn {
   font-size: var(--font-size-20);
   font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
   color: #000;
   background: none;
   border: none;
-  padding: 0.5rem 1rem;
   cursor: pointer;
   transition:
     color 0.15s ease,
@@ -907,6 +931,27 @@ section {
   margin-top: 3rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
+}
+
+@media (max-width: 48rem) {
+  .ai-workflow__tabs {
+    gap: 0.75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .ai-workflow__desc {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 30rem) {
+  .ai-workflow__tabs {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .ai-workflow__tab--hidden {
@@ -970,6 +1015,10 @@ section {
   flex-direction: row;
   gap: 0.5rem;
   flex-shrink: 0;
+}
+
+.ai-workflow__card-actions.is-hidden {
+  display: none !important;
 }
 
 .ai-workflow__card-btn {
@@ -1134,7 +1183,14 @@ section {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  gap: 1rem;
+}
+
+.contact__card.is-hidden {
+  display: none !important;
+}
+
+.contact__img.is-hidden {
+  display: none !important;
 }
 
 .contact__text-box {
@@ -1178,6 +1234,9 @@ section {
   font-size: 1.875rem; /* 30px */
   font-weight: 700;
   color: #333;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
 }
 
 .contact__img {
@@ -1190,6 +1249,11 @@ section {
 
 .contact__card:nth-child(2) .contact__badge--label {
   margin-left: auto;
+}
+
+/* Contact: 2-card layout when Download Resume hidden */
+.contact__cards:has(.contact__card.is-hidden) {
+  max-width: 100%;
 }
 
 /* ===== Footer ===== */
@@ -1318,9 +1382,14 @@ section {
     align-self: flex-end;
   }
 
+  .ai-workflow__example {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .ai-workflow__example-img {
     width: 100%;
-    max-width: 480px;
+    max-width: 100%;
   }
 
   .ai-workflow__question-text {
@@ -1460,13 +1529,14 @@ section {
     min-width: 0;
   }
 
-  .about__image .placeholder--profile {
+  .about__image .placeholder--profile,
+  .about__image .about__profile-img {
     width: 60%;
     max-width: 60%;
+    height: auto;
     min-height: 12rem;
     aspect-ratio: 6/7;
     border-radius: 1rem;
-    background: #6b6b6b;
     margin: 0 auto;
     display: block;
   }
@@ -1488,7 +1558,7 @@ section {
 
   .about__intro {
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .about__intro-title {
@@ -1523,7 +1593,7 @@ section {
     margin-bottom: 2rem;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    display: none;
     width: fit-content;
   }
 
@@ -1805,13 +1875,14 @@ section {
     width: 100%;
   }
 
-  .about__image .placeholder--profile {
+  .about__image .placeholder--profile,
+  .about__image .about__profile-img {
     width: 100%;
     max-width: none;
+    height: auto;
     min-height: 12rem;
-    aspect-ratio: 6/7;
+    aspect-ratio: 1/1;
     border-radius: 1rem;
-    background: #6b6b6b;
     margin: 0;
     display: block;
   }
@@ -1833,7 +1904,7 @@ section {
 
   .about__intro {
     text-align: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .about__intro-title {
@@ -1848,7 +1919,8 @@ section {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: 20rem;
+    max-width: 100%;
+    width: 100%;
     line-height: 1.7;
   }
 
@@ -1868,7 +1940,7 @@ section {
     margin-bottom: 2rem;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
+    display: none;
     width: fit-content;
   }
 
@@ -2311,8 +2383,9 @@ section {
     --about-gap: 1.25rem;
   }
 
-  .about__image .placeholder--profile {
-    aspect-ratio: 6/7;
+  .about__image .placeholder--profile,
+  .about__image .about__profile-img {
+    aspect-ratio: 1/1;
   }
 
   .about__detail-block {
@@ -2368,6 +2441,11 @@ section {
   .section-title {
     font-size: var(--font-size-28);
     margin-bottom: 0.875rem;
+  }
+
+  .project__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
   .project__filter {

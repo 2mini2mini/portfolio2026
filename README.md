@@ -2,7 +2,7 @@
 
 포트폴리오 웹사이트 프로젝트입니다.
 
-**접속:** https://2mini2mini.github.io/portfolio/
+**접속:** https://2mini2mini.github.io/portfolio2026/
 
 ## Tech
 

@@ -19,9 +19,14 @@
   const nameText = project.name.replace(/<[^>]*>/g, "");
 
   /* Hero (썸네일과 별도 이미지 사용, detail.heroBg 필수) */
-  const heroBg = document.querySelector("[data-hero-bg]");
-  if (heroBg && project.detail?.heroBg) {
-    heroBg.style.backgroundImage = `url(${project.detail.heroBg})`;
+  const heroSection = document.querySelector(".project-detail__hero");
+  if (heroSection && project.detail?.hideHero) {
+    heroSection.style.display = "none";
+  } else {
+    const heroBg = document.querySelector("[data-hero-bg]");
+    if (heroBg && project.detail?.heroBg) {
+      heroBg.style.backgroundImage = `url(${project.detail.heroBg})`;
+    }
   }
 
   const heroLogo = document.querySelector("[data-hero-logo]");
@@ -55,6 +60,11 @@
 
   /* Content */
   document.title = `${nameText} | MINHEE PORTFOLIO`;
+
+  const contentSection = document.querySelector(".project-detail__content");
+  if (contentSection && project.detail?.hideDescription) {
+    contentSection.style.display = "none";
+  }
 
   const detailTitle = document.querySelector("[data-detail-title]");
   if (detailTitle) {
@@ -184,5 +194,20 @@
     responsiveWrap.style.display = "block";
   } else if (responsiveWrap) {
     responsiveWrap.style.display = "none";
+  }
+
+  /* Page Gallery (페이지 순서 이미지) */
+  const pageGalleryWrap = document.querySelector("[data-detail-page-gallery]");
+  const pageGalleryList = document.querySelector("[data-detail-page-gallery-list]");
+  if (pageGalleryWrap && pageGalleryList && project.detail?.pageImages?.length) {
+    pageGalleryList.innerHTML = project.detail.pageImages
+      .map(
+        (imgPath, i) =>
+          `<div class="project-detail__page-gallery-item"><img src="${imgPath}" alt="${nameText} ${i + 1}" class="project-detail__page-gallery-img" loading="lazy" /></div>`
+      )
+      .join("");
+    pageGalleryWrap.style.display = "block";
+  } else if (pageGalleryWrap) {
+    pageGalleryWrap.style.display = "none";
   }
 })();

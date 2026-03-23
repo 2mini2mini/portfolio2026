@@ -21,8 +21,15 @@ function renderProjects() {
       ? `<div class="project__motion${motionModifier}" data-motion="${project.motion}" data-index="${index}" aria-hidden="true"></div>`
       : "";
 
+    const isOthers = project.category === "others";
+    const cardHref = isOthers ? "#" : (project.externalUrl
+      ? project.externalUrl
+      : `project-detail.html?id=${index}`);
+    const cardAttrs = project.externalUrl ? ' target="_blank" rel="noopener noreferrer"' : "";
+    const cardOpen = isOthers ? `<div class="project__card project__card--no-link" data-category="${project.category}">` : `<a href="${cardHref}" class="project__card" data-category="${project.category}"${cardAttrs}>`;
+    const cardClose = isOthers ? "</div>" : "</a>";
     return `
-    <a href="project-detail.html?id=${index}" class="project__card" data-category="${project.category}">
+    ${cardOpen}
       <div class="project__thumb">
         ${thumbContent}
         ${motionContent}
@@ -34,7 +41,7 @@ function renderProjects() {
           </div>
         </div>
       </div>
-    </a>
+    ${cardClose}
   `;
     }).join("");
 

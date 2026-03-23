@@ -411,6 +411,35 @@ body.page-project-detail {
   background-color: #F7F8FD;
 }
 
+/* Page Gallery */
+.project-detail__page-gallery {
+  display: none;
+  padding: 4rem 0;
+}
+
+.project-detail__page-gallery .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.project-detail__page-gallery-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-detail__page-gallery-item {
+  width: 100%;
+}
+
+.project-detail__page-gallery-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
 /* 목록 보기 버튼 */
 .project-detail__list-btn-wrap {
   display: flex;
