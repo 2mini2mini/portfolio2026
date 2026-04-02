@@ -1182,7 +1182,8 @@ section {
 .contact__card {
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .contact__card.is-hidden {
@@ -1249,11 +1250,6 @@ section {
 
 .contact__card:nth-child(2) .contact__badge--label {
   margin-left: auto;
-}
-
-/* Contact: 2-card layout when Download Resume hidden */
-.contact__cards:has(.contact__card.is-hidden) {
-  max-width: 100%;
 }
 
 /* ===== Footer ===== */
@@ -1405,7 +1401,7 @@ section {
   }
 
   .contact__cards {
-    max-width: 100%;
+    max-width: 37.5rem;
   }
 
   .contact__text-box {
@@ -1795,13 +1791,14 @@ section {
   }
 
   .contact__cards {
-    max-width: 100%;
+    max-width: 37.5rem;
   }
 
   .contact__card {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
   }
 
@@ -2312,6 +2309,7 @@ section {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
   }
 
